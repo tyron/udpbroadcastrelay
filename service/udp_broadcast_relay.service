@@ -1,0 +1,11 @@
+[Unit]
+Description=UDP Broadcast Relay
+
+[Service]
+PIDFile=/tmp/udp_broadcast_relay-99.pid
+Restart=always
+KillSignal=SIGQUIT
+ExecStart=/usr/local/sbin/udpbroadcastrelay --id 1 --port 9999 --dev ens160 --dev ens192 --allowcidr 192.168.40.33/32
+
+[Install]
+WantedBy=multi-user.target
